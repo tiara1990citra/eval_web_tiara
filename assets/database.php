@@ -1,9 +1,11 @@
 <?php 
 $koneksi =  new mysqli("localhost","root","","uprak_tiara");
-if ($koneksi->connect_error){
-die ("".$koneksi->connect_error);
+$query = $query = "select * from kasir";
 
+$hasil =$koneksi->query($query);
+$kasir=[];
 
+while($item =$hasil->fetch_assoc()){
+$kasir[]=$item;
 }
-
 ; ?>
