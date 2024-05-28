@@ -6,14 +6,25 @@ if(isset(($_POST['login']))){
   $password = $_POST['password'];
   $query = 'select * from admin query username =$usernama';
   $result = mysqli_query($conn, $query);
+  if($result){
+    $row = mysqli_fetch_array($result);
+    $username = $row['username'];
+    $password = $row['password'];
+    $query = '';
+    
+
+  }
+
   if(mysqli_num_rows($result) > 0){
     $row = mysqli_fetch_array($result);
     $username = $row['username'];
     $password = $row['password'];
+
+
   
     
 
-  
+  }
 }
 
 
