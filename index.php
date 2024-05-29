@@ -80,37 +80,6 @@ $hasil = $koneksi->query($sql);
                         <a class="collapse-item" href="buttons.html">Buttons</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
-                    <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">id</th>
-                                        <th scope="col">tahun</th>
-                                        <th scope="col">nominal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $a = 1; ?>
-                                    <?php foreach ($hasil as $p) { ?>
-                                        <tr>
-                                            <th scope="row">
-                                                <?= $a; ?>
-                                            </th>
-                                            <td>
-                                                <?= $p['id']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $p['tahun']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $p['nominal']; ?>
-                                            </td>
-
-                                        </tr>
-                                        <?php $a++;
-                                    } ?>
-                                </tbody>
-                            </table>
                 </div>
             </li>
 
@@ -383,6 +352,37 @@ $hasil = $koneksi->query($sql);
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">id</th>
+                                        <th scope="col">tahun</th>
+                                        <th scope="col">nominal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $a = 1; ?>
+                                    <?php foreach ($hasil as $p) { ?>
+                                        <tr>
+                                            <th scope="row">
+                                                <?= $a; ?>
+                                            </th>
+                                            <td>
+                                                <?= $p['id']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $p['tahun']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $p['nominal']; ?>
+                                            </td>
+
+                                        </tr>
+                                        <?php $a++;
+                                    } ?>
+                                </tbody>
+                            </table>
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -750,7 +750,6 @@ $hasil = $koneksi->query($sql);
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-
     <?php include "layout/fother.php"; ?>
 </body>
 
