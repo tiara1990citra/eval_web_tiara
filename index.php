@@ -1,3 +1,19 @@
+<?php 
+
+    include "layout/header.php";
+
+?>
+<?php include "spp/createspp.php"; ?>
+<?php
+include "assets/database.php";
+
+$sql = "select * from spp";
+
+$hasil = $koneksi->query($sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,6 +80,37 @@
                         <a class="collapse-item" href="buttons.html">Buttons</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
+                    <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">id</th>
+                                        <th scope="col">tahun</th>
+                                        <th scope="col">nominal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $a = 1; ?>
+                                    <?php foreach ($hasil as $p) { ?>
+                                        <tr>
+                                            <th scope="row">
+                                                <?= $a; ?>
+                                            </th>
+                                            <td>
+                                                <?= $p['id']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $p['tahun']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $p['nominal']; ?>
+                                            </td>
+
+                                        </tr>
+                                        <?php $a++;
+                                    } ?>
+                                </tbody>
+                            </table>
                 </div>
             </li>
 
@@ -704,6 +751,7 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
+    <?php include "layout/fother.php"; ?>
 </body>
 
 </html>
