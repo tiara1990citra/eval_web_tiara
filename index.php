@@ -1,10 +1,4 @@
 <?php
-
-include "layout/header.php";
-
-?>
-
-<?php
 include "assets/database.php";
 
 $sql = "select * from spp";
@@ -13,27 +7,11 @@ $hasil = $koneksi->query($sql);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
+include "layout/header.php";
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-
-</head>
+?>
 
 <body id="page-top">
 
@@ -154,7 +132,6 @@ $hasil = $koneksi->query($sql);
             </div>
 
         </ul>
-        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -350,41 +327,40 @@ $hasil = $koneksi->query($sql);
 
                 <div class="container-fluid">
 
-                <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">id</th>
-                                        <th scope="col">tahun</th>
-                                        <th scope="col">nominal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $a = 1; ?>
-                                    <?php foreach ($hasil as $terserah) { ?>
-                                        <tr>
-                                            <th scope="row">
-                                                <?= $a; ?>
-                                            </th>
-                                            <td>
-                                                <?= $terserah['id']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $terserah['tahun']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $terserah['nominal']; ?>
-                                            </td>
-                                            <td>
-                                                <a href="edit.php?id=<?= $terserah['id']; ?>" class="btn btn-primary">edit</a>
-                                                <a href="delete.php?id=<?= $terserah['id']; ?>"
-                                                    class="btn btn-danger">hapus</a>
-                                            </td>
-                                        </tr>
-                                        <?php $a++;
-                                    } ?>
-                                </tbody>
-                            </table>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">id</th>
+                                <th scope="col">tahun</th>
+                                <th scope="col">nominal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $a = 1; ?>
+                            <?php foreach ($hasil as $terserah) { ?>
+                                <tr>
+                                    <th scope="row">
+                                        <?= $a; ?>
+                                    </th>
+                                    <td>
+                                        <?= $terserah['id']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $terserah['tahun']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $terserah['nominal']; ?>
+                                    </td>
+                                    <td>
+                                        <a href="edit.php?id=<?= $terserah['id']; ?>" class="btn btn-primary">edit</a>
+                                        <a href="delete.php?id=<?= $terserah['id']; ?>" class="btn btn-danger">hapus</a>
+                                    </td>
+                                </tr>
+                            <?php $a++;
+                            } ?>
+                        </tbody>
+                    </table>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -403,12 +379,8 @@ $hasil = $koneksi->query($sql);
             <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
