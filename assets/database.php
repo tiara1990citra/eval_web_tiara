@@ -1,6 +1,6 @@
 <?php 
 $koneksi =  new mysqli("localhost","root","","kara");
-$query  = "select * from spp";
+$query  = "select * from siswa";
 
 $hasil =$koneksi->query($query);
 $kasir=[];

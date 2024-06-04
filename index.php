@@ -1,9 +1,9 @@
 <?php
 include "assets/database.php";
 
-$sql = "select * from spp";
+$sql = "select * from siswa";
 
-$hasil = $koneksi->query($sql);
+$hasil =$koneksi->query($sql);
 
 ?>
 
@@ -331,9 +331,11 @@ include "layout/header.php";
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">id</th>
-                                <th scope="col">tahun</th>
-                                <th scope="col">nominal</th>
+                                <th scope="col">nis</th>
+                                <th scope="col">nama_lengkap</th>
+                                <th scope="col">alamat</th>
+                                <th scope="col">kelas_id</th>
+                                <th scope="col">spp_id</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -344,17 +346,23 @@ include "layout/header.php";
                                         <?= $a; ?>
                                     </th>
                                     <td>
-                                        <?= $terserah['id']; ?>
+                                        <?= $terserah['nis']; ?>
                                     </td>
                                     <td>
-                                        <?= $terserah['tahun']; ?>
+                                        <?= $terserah['nama_lengkap']; ?>
                                     </td>
                                     <td>
-                                        <?= $terserah['nominal']; ?>
+                                        <?= $terserah['alamat']; ?>
                                     </td>
                                     <td>
-                                        <a href="edit.php?id=<?= $terserah['id']; ?>" class="btn btn-primary">edit</a>
-                                        <a href="delete.php?id=<?= $terserah['id']; ?>" class="btn btn-danger">hapus</a>
+                                        <?= $terserah['kelas_id']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $terserah['spp_id']; ?>
+                                    </td>
+                                    <td>
+                                        <a href="edit.php?id=<?= $terserah['nis']; ?>" class="btn btn-primary">edit</a>
+                                        <a href="delete.php?id=<?= $terserah['nis']; ?>" class="btn btn-danger">hapus</a>
                                     </td>
                                 </tr>
                             <?php $a++;
