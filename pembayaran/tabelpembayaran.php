@@ -4,7 +4,7 @@
 
 include "../assets/database.php";
 
-$sql = "select * from siswa";
+$sql = "select * from pembayaran ";
 
 $hasil = $koneksi->query($sql);
 
@@ -17,10 +17,7 @@ $hasil = $koneksi->query($sql);
             <div class="lds-pos"></div>
         </div>
     </div>
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
-        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <?php include "../layout/navbar.php"; ?>
-        <?php include "../layout/menu.php"; ?>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
@@ -43,53 +40,49 @@ $hasil = $koneksi->query($sql);
                     <div class="col-12">
                         <div class="card">
 
-                    <a href="createpasok.php" class="btn btn-primary">Tambah</a>
+                            <a href="createpembayaran.php" class="btn btn-primary">Tambah</a>
 
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
+                                        <th scope="col">no_transaksi</th>
+                                        <th scope="col">tanggal</th>
                                         <th scope="col">nis</th>
-                                        <th scope="col">nama_lengkap</th>
-                                        <th scope="col">jenis_kelamin</th>
-                                        <th scope="col">alamat</th>
-                                        <th scope="col">no_hp</th>
-                                        <th scope="col">kelas_id</th>
-                                        <th scope="col">spp_id</th>
+                                        <th scope="col">bulan_tagihan</th>
+                                        <th scope="col">tahun_tagihan</th>
+                                        <th scope="col">admin</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $a = 1; ?>
-                                    <?php foreach ($hasil as $terserah) { ?>
+                                    <?php foreach ($hasil as $p){ ?>
                                         <tr>
                                             <th scope="row">
                                                 <?= $a; ?>
                                             </th>
                                             <td>
-                                                <?= $terserah['nis']; ?>
+                                                <?= $p['no_transaksi']; ?>
                                             </td>
                                             <td>
-                                                <?= $terserah['nama_lengkap']; ?>
+                                                <?= $p['tanggal']; ?>
                                             </td>
                                             <td>
-                                                <?= $terserah['jenis_kelamin']; ?>
+                                                <?= $p['nis']; ?>
                                             </td>
                                             <td>
-                                                <?= $terserah['alamat']; ?>
+                                                <?= $p['bulan_tagihan']; ?>
                                             </td>
                                             <td>
-                                                <?= $terserah['no_hp']; ?>
+                                                <?= $p['tahun_tagihan']; ?>
                                             </td>
                                             <td>
-                                                <?= $terserah['kelas_id']; ?>
-                                            </td>
-                                            <td>
-                                                <?= $terserah['spp_id']; ?>
+                                                <?= $p['admin_id']; ?>
                                             </td>
                                             <td>
                                             </td>
                                         </tr>
-                                        <?php $a++;
+                                    <?php $a++;
                                     } ?>
                                 </tbody>
                             </table>
@@ -98,7 +91,7 @@ $hasil = $koneksi->query($sql);
                 </div>
             </div>
 
-            <?php include "../layout/footer.php"; ?>
+            <?php include "../layout/fother.php"; ?>
         </div>
     </div>
     <script src="/assets/plugins/jquery/dist/jquery.min.js"></script>
